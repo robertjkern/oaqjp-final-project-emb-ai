@@ -7,6 +7,7 @@ This script defines a Flask-based server for performing emotion detection on use
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 from EmotionDetection.emotion_detection import emotion_predictor
+from os import symlink
 
 app = Flask("Emotion Detection")
 
@@ -41,5 +42,6 @@ def render_index_page():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    run_emotion_detection()
+    app.run(host="0.0.0.0", port=5000)
+
     
