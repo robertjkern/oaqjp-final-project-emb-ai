@@ -24,14 +24,14 @@ def sent_detector():
     """
     text_to_detect = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_detect)
-    formated_response = emotion_predictor(response)
-    if formated_response['dominant_emotion'] is None:
+    formatted_response = emotion_predictor(response)
+    if formatted_response['dominant_emotion'] is None:
         return "Invalid text! Please try again."
     return (
-        f"For the given statement, the system response is 'anger': {formated_response['anger']} "
-        f"'disgust': {formated_response['disgust']}, 'fear': {formated_response['fear']}, "
-        f"'joy': {formated_response['joy']} and 'sadness': {formated_response['sadness']}. "
-        f"The dominant emotion is {formated_response['dominant_emotion']}."
+        f"For the given statement, the system response is 'anger': {formatted_response['anger']} "
+        f"'disgust': {formatted_response['disgust']}, 'fear': {formatted_response['fear']}, "
+        f"'joy': {formatted_response['joy']} and 'sadness': {formatted_response['sadness']}. "
+        f"The dominant emotion is {formatted_response['dominant_emotion']}."
     )
 
 @app.route("/")
