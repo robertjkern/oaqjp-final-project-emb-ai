@@ -16,16 +16,16 @@ def emotion_detector(text_to_analyze):
         sadness = formatted_response['emotionPredictions'][0]['emotion']['sadness']
         dominant_emo = {'anger':anger,'disgust':disgust,'fear':fear,'joy':joy,'sadness':sadness}
         dominant_emotion = max(dominant_emo, key=dominant_emo.get)
-        return formated_response
+        return formatted_response
     elif response.status_code == 400:
-        formated_response = {
+        formatted_response = {
                             'anger': None,
                             'disgust': None, 
                             'fear': None, 
                             'joy': None, 
                             'sadness': None, 
                             'dominant_emotion': None}
-        return formated_response
+        return formatted_response
 
 def emotion_predictor(detected_text):
     if all(value is None for value in detected_text.values()):
@@ -39,7 +39,7 @@ def emotion_predictor(detected_text):
         sadness = emotions['sadness']
         max_emotion = max(emotions, key=emotions.get)
         #max_emotion_score = emotions[max_emotion]
-        formated_dict_emotions = {
+        formatted_dict_emotions = {
                                 'anger': anger,
                                 'disgust': disgust,
                                 'fear': fear,
@@ -47,4 +47,4 @@ def emotion_predictor(detected_text):
                                 'sadness': sadness,
                                 'dominant_emotion': max_emotion
                                 }
-        return formated_dict_emotions
+        return formatted_dict_emotions
